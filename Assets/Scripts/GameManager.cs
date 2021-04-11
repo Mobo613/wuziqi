@@ -36,6 +36,8 @@ namespace Wuziqi.Manager
 			return true;
         }
 
+
+		//TODO
 		/// <summary>
 		/// 检查是否获胜
 		/// </summary>
