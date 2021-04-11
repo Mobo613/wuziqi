@@ -21,6 +21,8 @@ namespace Wuziqi.Cell
         {
             print("Position: ( " + this.transform.position.x + " , " + this.transform.position.y + " )");
             print("CellStatus: " + cellStatus.status);
+
+            playerStatus.changePlayer();
             print("Player: " + playerStatus.player);
         }
     }

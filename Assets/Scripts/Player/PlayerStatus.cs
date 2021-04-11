@@ -17,5 +17,13 @@ namespace Wuziqi.Player
 			// 设置黑棋为先手
 			player = EPlayerStatus.Player.Black;
         }
+
+		public void changePlayer()
+        {
+			if (player == EPlayerStatus.Player.Black)
+				player = EPlayerStatus.Player.White;
+			else
+				player = EPlayerStatus.Player.Black;
+        }
     }
 }
