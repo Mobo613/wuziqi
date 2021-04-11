@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Wuziqi.Player;
+using Wuziqi.Manager;
 
 namespace Wuziqi.Cell
 {
@@ -13,12 +14,13 @@ namespace Wuziqi.Cell
         private CellStatus cellStatus;
         private PlayerStatus playerStatus;
         private SpriteRenderer spriteRenderer;
-
+        private GameManager gameManager;
         private void Start()
         {
             cellStatus = GetComponent<CellStatus>();
             playerStatus = FindObjectOfType<PlayerStatus>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            gameManager = FindObjectOfType<GameManager>();
         }
 
         private void OnMouseDown()
@@ -43,6 +45,7 @@ namespace Wuziqi.Cell
                     spriteRenderer.color = new Color(255, 255, 255);
                 }
                 print("After CellStatus: " + cellStatus.status);
+                print("isFull: " + gameManager.isFull());
 
                 playerStatus.changePlayer();
                 print("After Player: " + playerStatus.player);
