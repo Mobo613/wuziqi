@@ -9,9 +9,15 @@ namespace Wuziqi.Cell
 	/// </summary>
 	public class CellClick : MonoBehaviour
 	{
+        private CellStatus cellStatus;
+        private void Start()
+        {
+            cellStatus = GetComponent<CellStatus>();
+        }
         private void OnMouseDown()
         {
             print("Position: ( " + this.transform.position.x + " , " + this.transform.position.y + " )");
+            print("CellStatus: " + cellStatus.status);
         }
     }
 }
