@@ -18,6 +18,9 @@ namespace Wuziqi.Player
 			player = EPlayerStatus.Player.Black;
         }
 
+		/// <summary>
+		/// 更换玩家
+		/// </summary>
 		public void changePlayer()
         {
 			if (player == EPlayerStatus.Player.Black)
