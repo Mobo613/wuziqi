@@ -59,11 +59,11 @@ namespace Wuziqi.Cell
         {
             string str;
             isFull = gameManager.isFull();
-            //isWin = gameManager.isWin(playerStatus, this.gameObject, 3);
-            isWin = true;
+            isWin = gameManager.isWin(cellStatus, this.gameObject);
+            //isWin = true;
             if (isWin)
             {
-                str = PlayerName() + "胜";
+                str = playerStatus.playerName() + "胜";
                 ui.SendMessage("ShowWin", str);
             }
             else
@@ -74,14 +74,6 @@ namespace Wuziqi.Cell
                     ui.SendMessage("ShowWin", str);
                 }
             }
-        }
-
-        private string PlayerName()
-        {
-            if (playerStatus.player == EPlayerStatus.Player.Black)
-                return "黑棋";
-            else
-                return "白棋";
         }
     }
 }

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/wuziqi.unity
+    guid: 2bfb9b0a2908f5840afb111e0cde33c8
   m_configObjects: {}

@@ -28,5 +28,13 @@ namespace Wuziqi.Player
 			else
 				player = EPlayerStatus.Player.Black;
         }
+
+		public string playerName()
+        {
+			if (player == EPlayerStatus.Player.Black)
+				return "黑棋";
+			else
+				return "白棋";
+		}
     }
 }
