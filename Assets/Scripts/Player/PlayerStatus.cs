@@ -10,7 +10,7 @@ namespace Wuziqi.Player
 	public class PlayerStatus : MonoBehaviour
 	{
 		[Tooltip("哪个玩家")]
-		public EPlayerStatus.Player player;
+		public static EPlayerStatus.Player player;
 
         private void Start()
         {
@@ -21,15 +21,18 @@ namespace Wuziqi.Player
 		/// <summary>
 		/// 更换玩家
 		/// </summary>
-		public void changePlayer()
+		public void ChangePlayer(bool shouldChange)
         {
+			if (shouldChange)
+            {
 			if (player == EPlayerStatus.Player.Black)
 				player = EPlayerStatus.Player.White;
 			else
 				player = EPlayerStatus.Player.Black;
+            }
         }
 
-		public string playerName()
+		public static string playerName()
         {
 			if (player == EPlayerStatus.Player.Black)
 				return "黑棋";
