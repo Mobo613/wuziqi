@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/wuziqi.unity
     guid: 2bfb9b0a2908f5840afb111e0cde33c8
-  - enabled: 1
-    path: Assets/Scenes/mainUI.unity
-    guid: 55f15d54f30271b49a197ce2cdbc25a0
-  - enabled: 1
-    path: Assets/Scenes/jingziqi.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
