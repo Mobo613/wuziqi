@@ -45,7 +45,7 @@ namespace Wuziqi.Cell
                         CanPlay(canPlay);
                     }
                 }
-                catch(NullReferenceException ex)
+                catch(NullReferenceException)
                 {
                     return;
                 }
