@@ -10,34 +10,22 @@ namespace Wuziqi.Player
 	public class PlayerStatus : MonoBehaviour
 	{
 		[Tooltip("哪个玩家")]
-		public static EPlayerStatus.Player player;
+		public EPlayerStatus.Player player;
 
-        private void Start()
+		public Color getPlayerColor()
         {
-			// 设置黑棋为先手
-			player = EPlayerStatus.Player.Black;
-        }
-
-		/// <summary>
-		/// 更换玩家
-		/// </summary>
-		public void ChangePlayer(bool shouldChange)
-        {
-			if (shouldChange)
-            {
 			if (player == EPlayerStatus.Player.Black)
-				player = EPlayerStatus.Player.White;
+				return new Color(0, 0, 0);
 			else
-				player = EPlayerStatus.Player.Black;
-            }
+				return new Color(255, 255, 255);
         }
 
-		public static string playerName()
-        {
+		public string getPlayerName()
+		{
 			if (player == EPlayerStatus.Player.Black)
 				return "黑棋";
 			else
 				return "白棋";
 		}
-    }
+	}
 }

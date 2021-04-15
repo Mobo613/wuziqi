@@ -16,17 +16,20 @@ namespace Wuziqi.Manager
 		/// </summary>
 		private GameObject[] cells;
 
+		private PlayerManager playerManager;
+
 		[Tooltip("获胜条件")]
 		public int condition = 3;
 
 		[Tooltip("棋盘间距")]
 		public float distance = 1;
 
-		public GameObject obj;
+		//public GameObject obj;
 
 		private void Start()
 		{
 			cells = GameObject.FindGameObjectsWithTag("cell");
+			playerManager = FindObjectOfType<PlayerManager>();
 		}
 
 		/// <summary>
@@ -67,12 +70,9 @@ namespace Wuziqi.Manager
 
 			foreach(var cell in cells)
             {
-				//print("This Status: " + cellStatus.status);
-				//print("Others Status: " + cell.GetComponent<CellStatus>().status);
 				if (cell.GetComponent<CellStatus>().status == cellStatus.status)
 					objList.Add(cell);
             }
-			//print(objList.Count);
 			
 			/*横*/
 			// 右边 x + 
@@ -108,7 +108,6 @@ namespace Wuziqi.Manager
 				findX -= distance;
 			}
 			hengCount = findList.Count;
-			print(hengCount);
 			// 清空findList
 			findList.Clear();
 
@@ -235,23 +234,17 @@ namespace Wuziqi.Manager
             }
 		}
 
-		private void StopClick(bool isStop)
-		{
-			if(isStop)
-            {
-				obj.SetActive(true);
-			}
-		}
-
         private void Check(CellStatus cellStatus)
         {
+			print(cellStatus);
             string str;
             bool isFull = this.isFull();
             bool isWin = this.isWin(cellStatus);
 			bool canPlay = true;
+			
             if (isWin)
             {
-                str = PlayerStatus.playerName() + "胜";
+                str = playerManager.getPlayerName() + "胜";
 				print(str);
 				//ui.SendMessage("ShowWin", str);
 				//this.enabled = false;
@@ -269,10 +262,7 @@ namespace Wuziqi.Manager
 					canPlay = false;
                 }
             }
-			foreach(var cell in cells)
-            {
-				cell.SendMessage("CanPlay", canPlay);
-            }
+			playerManager.SendMessage("continueChess", canPlay);
         }
     }
 }
